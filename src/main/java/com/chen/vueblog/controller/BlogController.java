@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chen.vueblog.common.lang.Result;
 import com.chen.vueblog.entity.Blog;
+import com.chen.vueblog.entity.User;
 import com.chen.vueblog.service.BlogService;
 import com.chen.vueblog.util.ShiroUtil;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -16,6 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -30,6 +32,12 @@ public class BlogController {
 
     @Autowired
     BlogService blogService;
+
+    // 通过自定SQL语句查询
+    @GetMapping("/blog/all")
+    public List<Blog> findAllBlog(){
+        return blogService.findAllBlogs();
+    }
 
     // 查询所有博客  使用的getMapper 返回的就是json字符串
     @GetMapping("/blogs")

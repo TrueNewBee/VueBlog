@@ -20,6 +20,6 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
 
     // 自定义sql语句查询(查询数据库中其他表)
-    @Select(" select *  from sys_user")
+    @Select(" select *  from user")
     public List<User> findAllUser();
 }
