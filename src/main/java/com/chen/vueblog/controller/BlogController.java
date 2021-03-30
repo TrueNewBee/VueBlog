@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- *  博客控制器
+ * 博客控制器
  * </p>
  *
  * @author 陈天祥
@@ -52,16 +52,16 @@ public class BlogController {
     // 对当前用户进行权限验证,只有文章作者才可以编辑
     @RequiresAuthentication
     @PostMapping("/blog/edit")
-    public Result edit(@Validated @RequestBody Blog blog){
+    public Result edit(@Validated @RequestBody Blog blog) {
 //        Assert.isTrue(false, "公开版不能任意编辑！");
 
         Blog temp = null;
-        if (blog.getId() != null){
+        if (blog.getId() != null) {
             temp = blogService.getById(blog.getId());
             // 只能编辑自己的文章
             System.out.println(ShiroUtil.getProfile().getId());
             Assert.isTrue(temp.getUserId().longValue() == ShiroUtil.getProfile().getId().longValue(), "没有权限编辑");
-        }else{
+        } else {
             temp = new Blog();
             temp.setUserId(ShiroUtil.getProfile().getId());
             temp.setCreated(LocalDateTime.now());

@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * @author : Chen
  * @date : 2021年03月24日 14:55
- * @details : 该类为shiro的配置类
+ * @details : 该类为shiro的配置类  配置好使用的时候 在需要验证方法上 @RequiresAuthentication即可
  */
 @Configuration
 public class ShiroConfig {
@@ -39,11 +39,12 @@ public class ShiroConfig {
         return sessionManager;
     }
 
+    // 创建一个安全管理者
     @Bean
     public DefaultWebSecurityManager securityManager(AccountRealm accountRealm,
                                                      SessionManager sessionManager,
                                                      RedisCacheManager redisCacheManager) {
-
+        // 参数里面传入了 accountRealm(账户领域对象), session会话的管理者,和redis的管理者
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
         //inject sessionManager
         securityManager.setSessionManager(sessionManager);

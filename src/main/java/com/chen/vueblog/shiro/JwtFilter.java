@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * @author Chen
  * @date 2021年03月24日 15:09
- * @details
+ * @details  Jwt过滤类
  */
 @Component
 public class JwtFilter extends AuthenticatingFilter {
