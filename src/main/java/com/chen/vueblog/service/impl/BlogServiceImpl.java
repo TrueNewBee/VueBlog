@@ -1,10 +1,14 @@
 package com.chen.vueblog.service.impl;
 
 import com.chen.vueblog.entity.Blog;
+import com.chen.vueblog.entity.User;
 import com.chen.vueblog.mapper.BlogMapper;
+import com.chen.vueblog.mapper.UserMapper;
 import com.chen.vueblog.service.BlogService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
