@@ -30,4 +30,11 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
     public List<Blog> findAllBlogs() {
         return blogMapper.findAllBlogs();
     }
+
+    @Override
+    public List<Blog> findDescription() {
+        return blogMapper.findDescription();
+    }
+
+
 }

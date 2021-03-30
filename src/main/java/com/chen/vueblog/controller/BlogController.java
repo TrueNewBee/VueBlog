@@ -33,10 +33,15 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
-    // 通过自定SQL语句查询
-    @GetMapping("/blog/all")
+    // 通过自定SQL语句查询 查询所有的blog
+    @GetMapping("/test/blog1")
     public List<Blog> findAllBlog(){
         return blogService.findAllBlogs();
+    }
+    // 连表查询.
+    @GetMapping("/test/blog2")
+    public List<Blog> findDescription(){
+        return blogService.findDescription();
     }
 
     // 查询所有博客  使用的getMapper 返回的就是json字符串

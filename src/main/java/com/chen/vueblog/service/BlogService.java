@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface BlogService extends IService<Blog> {
     public List<Blog> findAllBlogs();
+    public List<Blog> findDescription();
 }
